@@ -1,0 +1,98 @@
+%btn_gradient {
+          background: #ff79da;
+          background: -moz-linear-gradient(-45deg,  #ff79da 0%, #9356dc 100%);
+          background: -webkit-linear-gradient(-45deg,  #ff79da 0%,#9356dc 100%);
+          background: linear-gradient(135deg,  #ff79da 0%,#9356dc 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff79da', endColorstr='#9356dc',GradientType=1 );
+}
+
+%btn_gradient_hover {
+          background: #9356dc;
+          background: -moz-linear-gradient(-45deg, #9356dc 1%, #ff79da 54%);
+          background: -webkit-linear-gradient(-45deg, #9356dc 1%,#ff79da 54%);
+          background: linear-gradient(135deg, #9356dc 1%,#ff79da 54%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9356dc', endColorstr='#ff79da',GradientType=1 );
+}
+
+%font_primaire {
+          font-family: $font_primaire;
+}
+
+%font_secondaire {
+          font-family: $font_secondaire;
+}
+
+%border_background {
+          border-radius: 30px;
+          border-color: $white;
+          background-color: $white;
+}
+
+%box_shadow_léger {
+          box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 30%);
+}
+
+%box_shadow_hover {
+          box-shadow: 4px 4px 12px 1px rgba(0, 0, 0, 30%);
+}
+
+%color_white {
+          color: $white;
+}
+
+%text_deco_none {
+          text-decoration: none;
+}
+
+%text_transform_none {
+          text-transform: none;
+}          
+
+%text_align_center {
+          text-align: center;
+}
+
+%column {
+          flex-direction: column;
+}
+
+%align_item_center {
+          align-items: center;
+}
+
+%justify_content_center {
+          justify-content: center;
+}
+
+%align_content_center {
+          align-content: center;
+}                  
+
+%width_45 {
+          width: 45%;
+}
+
+%width_100 {
+          width: 100%;
+}
+
+%height_20rem {
+          height: 20rem;
+}
+
+%justify_between {
+          justify-content: space-between;
+}
+
+%position_relative {
+          position: relative;
+}
+
+%objec_fit_cover {
+          object-fit: cover;
+}
+
+%margin_1rem {
+          margin: 1rem;
+}
+

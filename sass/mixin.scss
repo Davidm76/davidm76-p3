@@ -1,0 +1,48 @@
+@mixin flex {
+          display: flex;
+          flex-wrap: wrap;
+}
+
+@mixin font_size($value) {
+         font-size: $value; 
+}
+
+@mixin border_r($top, $right, $bottom, $left) {
+          border-radius: $top $right $bottom $left;
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+          margin: $top $right $bottom $left;
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+          padding: $top $right $bottom $left;
+}
+
+@mixin height($value) {
+          height: $value;
+}
+
+@mixin width($value) {
+          width: $value;
+}
+
+@mixin max_width($value) {
+          max-width: $value;
+}
+
+@mixin max_height($value) {
+          max-height: $value;
+}
+
+@mixin background_color($color) {
+          background-color: $color;
+}
+
+@mixin color_text($color) {
+          color: $color;
+}
+
+@mixin transition($second) {
+          transition: $second;
+}
