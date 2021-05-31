@@ -516,7 +516,26 @@ header a i {
   font-size: 2rem;
 }
 .image_haut_page div i {
+  position: absolute;
+  top: 40rem;
+  right: 4rem;
   font-size: 2rem;
+  margin: 3rem 1rem 0 0;
+}
+.image_haut_page div .far {
+  display: flex;
+}
+.image_haut_page div .far:hover {
+  opacity: 0%;
+  color: white;
+}
+.image_haut_page div .fas {
+  display: flex;
+  opacity: 0%;
+  color: #9356dc;
+}
+.image_haut_page div .fas:hover {
+  opacity: 100%;
 }
 
 @media all and (max-width: 768px) {
@@ -532,36 +551,24 @@ header a i {
   }
   .image_haut_page div i {
     position: absolute;
-    top: 40rem;
+    top: -1.5rem;
     right: 0rem;
     font-size: 2rem;
     margin: 3rem 1rem 0 0;
   }
-}
-@media all and (max-width: 768px) and (max-width: 768px) {
-  .image_haut_page div i {
-    top: -1.5rem;
-  }
-}
-@media all and (max-width: 768px) {
   .image_haut_page div .far {
     display: flex;
+    right: 0rem;
   }
-}
-@media all and (max-width: 768px) {
   .image_haut_page div .far:active {
     opacity: 0;
     color: white;
   }
-}
-@media all and (max-width: 768px) {
   .image_haut_page div .fas {
     display: flex;
     opacity: 0%;
     color: #9356dc;
   }
-}
-@media all and (max-width: 768px) {
   .image_haut_page div .fas:active {
     opacity: 100%;
   }

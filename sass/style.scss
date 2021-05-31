@@ -418,7 +418,27 @@ header {
                   }
 
                   i {
-                        font-size: 2rem;
+                        position: absolute;
+                        top: 40rem;
+                        right: 4rem;
+                        @include font_size(2rem);
+                        @include margin(3rem, 1rem, 0, 0);
+                  }
+                  .far {
+                        display: flex;
+                  }
+                  
+                  .far:hover {
+                        opacity: 0%;
+                        color: white;
+                  }
+                  .fas {
+                        display: flex;
+                        opacity: 0%;
+                        color: #9356dc;  
+                  }
+                  .fas:hover {
+                        opacity: 100%;
                   }
 
             }
@@ -437,18 +457,16 @@ header {
                   }
                   i {
                         position: absolute;
-                        top: 40rem;
+                        top: -1.5rem;
                         right: 0rem;
                         @include font_size(2rem);
                         @include margin(3rem, 1rem, 0, 0);
-
-                        @media all and (max-width: 768px) {
-                              top: -1.5rem;     
-                        }
                   }
                   .far {
                         display: flex;
+                        right: 0rem;
                   }
+                  
                   .far:active {
                         opacity: 0;
                         color: white;
@@ -460,7 +478,7 @@ header {
                   }
                   .fas:active {
                         opacity: 100%;
-                  }  
+                  }
             }
       }
 }
