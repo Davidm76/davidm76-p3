@@ -517,7 +517,7 @@ header a i {
 }
 .image_haut_page div i {
   position: absolute;
-  top: 40rem;
+  top: -1.5rem;
   right: 4rem;
   font-size: 2rem;
   margin: 3rem 1rem 0 0;
