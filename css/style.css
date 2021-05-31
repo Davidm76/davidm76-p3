@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "roboto";
   src: url("../fonts/Roboto-Regular.ttf");
@@ -55,6 +56,33 @@
     display: none;
   }
 }
+@keyframes favori_vide {
+  0% {
+    opacity: 100%;
+  }
+  30% {
+    opacity: 0%;
+    color: white;
+  }
+  100% {
+    opacity: 0%;
+    color: white;
+    display: none;
+  }
+}
+@keyframes favori_plein {
+  0% {
+    opacity: 0%;
+    display: flex;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 100%;
+    display: flex;
+  }
+}
 @keyframes cascade {
   0% {
     opacity: 0%;
@@ -71,11 +99,15 @@
 }
 @keyframes checked {
   0% {
-    margin-right: 0px;
+    display: block;
+    opacity: 0%;
     transform: rotateZ(0deg);
   }
+  30% {
+    opacity: 100%;
+  }
   100% {
-    margin-right: 10px;
+    opacity: 100%;
     transform: rotateZ(360deg);
   }
 }
@@ -109,7 +141,7 @@ body {
   background-color: #fff;
 }
 
-.bouton .btn, .menu div .etiquette_plat, .vignette_menu a .nouveau, .vignette_menu, .filtre .texte, .en_tete .btn {
+.bouton .btn, .etiquette_plat:active, .etiquette_plat:hover, .vignette_menu a .nouveau, .vignette_menu, .filtre .texte, .en_tete .btn {
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -379,6 +411,7 @@ header a i {
   color: #000;
 }
 .vignette_menu a div:first-of-type div {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -391,8 +424,39 @@ header a i {
   margin: 1rem 0 0 1rem;
 }
 .vignette_menu a div:first-of-type i {
+  position: absolute;
+  top: 40rem;
+  right: 0rem;
   font-size: 2rem;
   margin: 3rem 1rem 0 0;
+}
+@media all and (max-width: 768px) {
+  .vignette_menu a div:first-of-type i {
+    top: 12rem;
+  }
+}
+.vignette_menu a div:first-of-type .far {
+  display: flex;
+}
+.vignette_menu a div:first-of-type .far:hover {
+  opacity: 0;
+  color: white;
+}
+.vignette_menu a div:first-of-type .far:active {
+  opacity: 0;
+  color: white;
+}
+.vignette_menu a div:first-of-type .fas {
+  display: flex;
+  opacity: 0%;
+  color: #9356dc;
+}
+.vignette_menu a div:first-of-type .fas:hover {
+  transition: 0.5s;
+  opacity: 100%;
+}
+.vignette_menu a div:first-of-type .fas:active {
+  opacity: 100%;
 }
 .vignette_menu a .nouveau {
   position: absolute;
@@ -466,25 +530,60 @@ header a i {
   .image_haut_page div h1 {
     font-size: 1.5rem;
   }
+  .image_haut_page div i {
+    position: absolute;
+    top: 40rem;
+    right: 0rem;
+    font-size: 2rem;
+    margin: 3rem 1rem 0 0;
+  }
+}
+@media all and (max-width: 768px) and (max-width: 768px) {
+  .image_haut_page div i {
+    top: -1.5rem;
+  }
+}
+@media all and (max-width: 768px) {
+  .image_haut_page div .far {
+    display: flex;
+  }
+}
+@media all and (max-width: 768px) {
+  .image_haut_page div .far:active {
+    opacity: 0;
+    color: white;
+  }
+}
+@media all and (max-width: 768px) {
+  .image_haut_page div .fas {
+    display: flex;
+    opacity: 0%;
+    color: #9356dc;
+  }
+}
+@media all and (max-width: 768px) {
+  .image_haut_page div .fas:active {
+    opacity: 100%;
+  }
 }
 
 /* fin image_haut_page */
 /* menu */
 .menu .etiquette_plat:nth-child(1) {
   opacity: 100%;
-  animation: cascade 2s linear 1;
+  animation: cascade 2.25s linear 1;
 }
 .menu .etiquette_plat:nth-child(2) {
   opacity: 100%;
-  animation: cascade 2.25s linear 1;
+  animation: cascade 2.5s linear 1;
 }
 .menu .etiquette_plat:nth-child(3) {
   opacity: 100%;
-  animation: cascade 2.5s linear 1;
+  animation: cascade 2.75s linear 1;
 }
 .menu .etiquette_plat:nth-child(4) {
   opacity: 100%;
-  animation: cascade 2.75s linear 1;
+  animation: cascade 3s linear 1;
 }
 
 .menu {
@@ -502,78 +601,107 @@ header a i {
   border-bottom: 3px solid;
   border-color: #99E2D0;
 }
-.menu div {
+.menu .etiquette_générale {
   width: 100%;
   margin: 1rem 5rem 2rem 2rem;
-  padding: 0 -4rem 0 -4rem;
 }
-.menu div div {
+.menu .etiquette_générale .etiquette_plat {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   position: relative;
-  background-color: white;
-  border: 1px solid;
-  border-color: white;
-  border-radius: 20px 20px 20px 20px;
-  /*    i {
-
-              position: absolute;
-              font-size: 2rem;
-              top: -1rem;
-              right: -4rem;
-              color: $tertiaire;
-        }      */
+  background: white;
+  border-radius: 25px 25px 25px 25px;
+  margin: 1rem 0 1rem 0;
 }
-.menu div div .plat {
-  font-weight: 600;
-  padding: 0 0 0 2rem;
-  margin: 1rem 0 -1rem 0;
+.menu .etiquette_générale .etiquette_plat .plat {
+  font-weight: 700;
+  margin: 1rem 0 1rem 1rem;
 }
-.menu div div div {
+.menu .etiquette_générale .etiquette_plat .description_prix_check {
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
-.menu div div div p {
-  margin: 0 0 -1rem 0;
+.menu .etiquette_générale .etiquette_plat .description_prix_check .description {
+  display: flex;
+  margin: -1.5rem 0 0 1rem;
+}
+.menu .etiquette_générale .etiquette_plat .description_prix_check .prix {
+  display: flex;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+.menu .etiquette_générale .etiquette_plat .description_prix_check .check {
+  display: flex;
+  position: absolute;
+  right: -3rem;
+  top: 0rem;
+  opacity: 100%;
+  transition: all 1s ease-in-out;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+}
+.menu .etiquette_générale .etiquette_plat .description_prix_check .check .fa-check-circle {
+  font-size: 2rem;
+  right: 0rem;
+  opacity: 100%;
+  color: #fff;
 }
 
 @media all and (max-width: 768px) {
-  .menu div {
-    margin: 1rem 1.5rem 2rem 0.5rem;
+  .menu .etiquette_générale {
+    margin: 1rem 1rem 0 1rem;
   }
-  .menu div div .plat {
-    margin: 1rem 0 -1rem -1.5rem;
-  }
-  .menu div div div .description {
+  .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .description {
     width: 17rem;
+    font-size: 0.85rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
+  .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .prix {
+    margin: 0 -0.5rem -1rem 0;
+  }
+  .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .prix:active {
+    margin-right: 3.2rem;
+  }
+  .menu .etiquette_générale .etiquette_plat .description_prix_check .check {
+    padding: 1.4rem 1rem 1rem 1rem;
+  }
 }
 
-/*.etiquette_plat {
-      cursor: pointer;
+.etiquette_plat:hover {
+  cursor: pointer;
+}
+.etiquette_plat:hover .description_prix_check .description_prix .prix {
+  margin-right: 5rem;
+}
+.etiquette_plat:hover .check {
+  background-color: #99E2D0;
+  border-radius: 0 25px 25px 0;
+  transform: translate(-3rem, 0);
+}
+.etiquette_plat:hover .check .fa-check-circle {
+  animation: checked 1s linear;
+}
 
-            .anim_check {
-                  background: $tertiaire;
-            }
+.etiquette_plat:active {
+  cursor: pointer;
+}
+.etiquette_plat:active .description_prix_check .description_prix .prix {
+  margin-right: 5rem;
+}
+.etiquette_plat:active .check {
+  background-color: #99E2D0;
+  border-radius: 0 25px 25px 0;
+  transform: translate(-3rem, 0);
+}
+.etiquette_plat:active .check .fa-check-circle {
+  animation: checked 1s linear;
+}
 
-            i {
-                  opacity: 0%;  
-            }
-
-            &:hover i {S
-                  opacity: 100%;
-                  animation: checked 0.5s linear 1;
-            }
-            &:active i {
-                  opacity: 100%;
-            }
-
-
-}*/
 /* fin menu */
 /* bouton */
 .bouton {
@@ -586,7 +714,7 @@ header a i {
 .bouton .btn {
   border-radius: 50px 50px 50px 50px;
   padding: 1rem 3rem 1rem 3rem;
-  margin: 1rem 0 5rem 3rem;
+  margin: 1rem 0 5rem 0rem;
 }
 .bouton .btn:hover {
   transition: 0.5s;
@@ -604,6 +732,12 @@ footer ul {
   flex-wrap: wrap;
   text-align: center;
   list-style: none;
+}
+footer ul :hover {
+  color: #9356dc;
+}
+footer ul :active {
+  color: #9356dc;
 }
 footer ul a {
   margin: 5px 0 0 5px;

@@ -294,6 +294,7 @@ header {
                   @include color_text($black);
             
                   div {
+                        position: relative;
                         display: flex;
                         flex-direction: column;
 
@@ -310,9 +311,40 @@ header {
                   }
             
                   i {
+                        position: absolute;
+                        top: 40rem;
+                        right: 0rem;
                         @include font_size(2rem);
                         @include margin(3rem, 1rem, 0, 0);
+                        @media all and (max-width: 768px) {
+                              top: 12rem;
+                              
+                        }
                   }
+                  .far {
+                        display: flex;
+                  }
+                  .far:hover {
+                        opacity: 0;
+                        color: white;
+                  }
+                  .far:active {
+                        opacity: 0;
+                        color: white;
+                  }
+                  .fas {
+                        display: flex;
+                        opacity: 0%;
+                        color: #9356dc;  
+                  }
+                  .fas:hover {
+                        transition: 0.5s;
+                        opacity: 100%;
+                  }
+                  .fas:active {
+                        opacity: 100%;
+                        
+                  }  
             }      
 
             .nouveau {
@@ -403,6 +435,32 @@ header {
                   h1 {
                         font-size: 1.5rem;
                   }
+                  i {
+                        position: absolute;
+                        top: 40rem;
+                        right: 0rem;
+                        @include font_size(2rem);
+                        @include margin(3rem, 1rem, 0, 0);
+
+                        @media all and (max-width: 768px) {
+                              top: -1.5rem;     
+                        }
+                  }
+                  .far {
+                        display: flex;
+                  }
+                  .far:active {
+                        opacity: 0;
+                        color: white;
+                  }
+                  .fas {
+                        display: flex;
+                        opacity: 0%;
+                        color: #9356dc;  
+                  }
+                  .fas:active {
+                        opacity: 100%;
+                  }  
             }
       }
 }
@@ -414,23 +472,25 @@ header {
 .menu {
       .etiquette_plat:nth-child(1) {
             opacity: 100%;
-            animation: cascade 2s linear 1;
+            animation: cascade 2.25s linear 1;
       }
       .etiquette_plat:nth-child(2) {
             opacity: 100%;
-            animation: cascade 2.25s linear 1;
+            animation: cascade 2.50s linear 1;
       }
       .etiquette_plat:nth-child(3) {
             opacity: 100%;
-            animation: cascade 2.5s linear 1;
+            animation: cascade 2.75s linear 1;
       }
       .etiquette_plat:nth-child(4) {
             opacity: 100%;
-            animation: cascade 2.75s linear 1;
+            animation: cascade 3s linear 1;
       }
 }
 
-.menu {
+
+
+ .menu {
       @include flex;
       @include background-color($grisclair_sup);
 
@@ -446,99 +506,137 @@ header {
                   }
             }
 
-            div {
+            .etiquette_générale {
                   width: 100%;
                   @include margin(1rem, 5rem, 2rem, 2rem);
-                  @include padding(0, -4rem, 0, -4rem);
-                  
-                  .etiquette_plat {
-                        @extend %box_shadow_léger;
-                  }
 
-                  div {
-                        @include flex;
-                        position: relative;
-                        background-color: white;
-                        border: 1px solid;
-                        border-color: white; 
-                        @include border-r(20px, 20px, 20px, 20px);
-                        
+                        .etiquette_plat {
+                              display: flex;
+                              flex-wrap: wrap;
+                              flex-direction: column;
+                              position: relative;
+                              background: white;
+                              @include border-r(25px, 25px, 25px, 25px);
+                              @include margin(1rem, 0, 1rem, 0);
 
-                  /*    i {
-                        
-                              position: absolute;
-                              font-size: 2rem;
-                              top: -1rem;
-                              right: -4rem;
-                              color: $tertiaire;
-                        }      */
-
-                        .plat {
-                        font-weight: 600;
-                        @include padding(0, 0, 0, 2rem);
-                        @include margin(1rem, 0, -1rem, 0);
-                        }
-
-                              div {
-                              @include flex;
-                              justify-content: space-between;
-                              
-
-                              p {
-                                    @include margin(0, 0, -1rem, 0);
+                              .plat {
+                                    font-weight: 700;
+                                    @include margin(1rem, 0, 1rem, 1rem);
                               }
-                        }
-                  }   
+
+                              .description_prix_check {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;     
+                                    width: 100%;
+
+                                          .description {
+                                                display: flex;
+                                                @include margin(-1.5rem, 0, 0, 1rem);
+                                          }
+
+                                          .prix {
+                                                display: flex;
+                                                position: absolute;
+                                                right: 1rem;
+                                                top: 1rem;
+                                          }
+                                    
+
+                                          .check {
+                                                display: flex;
+                                                position: absolute;
+                                                right: -3rem;
+                                                top: 0rem;
+                                                opacity: 100%;
+                                                transition: all 1s ease-in-out;
+                                                @include padding(1.5rem, 1.5rem, 1.5rem, 1.5rem);
+
+                                          .fa-check-circle {
+                                                font-size: 2rem;
+                                                right: 0rem;
+                                                opacity: 100%;
+                                                color: $white;  
+                                          }
+                                    }
+                              }
+                        } 
             }
-}
+} 
 
 .menu {
       @media all and (max-width: 768px) {
-            div {
-                  @include margin(1rem, 1.5rem, 2rem, 0.5rem);
-                  div {
-                        .plat {
-                        @include margin(1rem, 0, -1rem, -1.5rem);
-                        }
-                              
-                        div {
-                              .description {
-                                    width: 17rem;
-                                    text-overflow: ellipsis;
-                                    white-space: nowrap;
-                                    overflow: hidden;   
+            .etiquette_générale {
+                  @include margin(1rem, 1rem, 0, 1rem);
+                  .etiquette_plat { 
+                        .description_prix_check {
+                              .description_prix {
+                                    .description {
+                                          width: 17rem;
+                                          font-size: 0.85rem;
+                                          text-overflow: ellipsis;
+                                          white-space: nowrap;
+                                          overflow: hidden;   
+                                    }
+                                    .prix {
+                                          @include margin(0, -0.5rem, -1rem, 0);
+                                          &:active {
+                                                margin-right: 3.2rem;
+                                          }
+                                    }
                               }
-                        }    
+                              .check {
+                                    @include padding(1.4rem, 1rem, 1rem, 1rem);
+                              } 
+                        }        
                   }
             }     
       }
 }
 
-/*.etiquette_plat {
+.etiquette_plat:hover {
+      @extend %box_shadow_léger;
       cursor: pointer;
-
-            .anim_check {
-                  background: $tertiaire;
+      .description_prix_check {
+            .description_prix {
+                  .prix {
+                        margin-right: 5rem;
+                  }
             }
-
-            i {
-                  opacity: 0%;  
-            }
-
-            &:hover i {S
-                  opacity: 100%;
-                  animation: checked 0.5s linear 1;
-            }
-            &:active i {
-                  opacity: 100%;
-            }
+      }
+      .check {
+            background-color: $tertiaire;
             
-      
-}*/
+            @include border-r(0, 25px, 25px, 0);
+            transform: translate(-3rem,0);
+            
+            .fa-check-circle {
+            animation: checked 1s linear;
+            }
+      }
+}
 
-
-
-
+.etiquette_plat:active {
+      @extend %box_shadow_léger;
+      cursor: pointer;
+      .description_prix_check {
+            .description_prix {
+                  .prix {
+                        margin-right: 5rem;
+                  }
+            }
+      }
+      .check {
+            background-color: $tertiaire;
+            
+            @include border-r(0, 25px, 25px, 0);
+            transform: translate(-3rem,0);
+            
+            .fa-check-circle {
+            animation: checked 1s linear;
+            }
+      }
+}
 
 /* fin menu */
 
@@ -555,7 +653,7 @@ header {
                   @include border_r(50px, 50px, 50px, 50px);
                   @extend %color_white;
                   @include padding(1rem, 3rem, 1rem, 3rem);
-                  @include margin(1rem, 0, 5rem, 3rem);
+                  @include margin(1rem, 0, 5rem, 0rem);
                   @extend %box_shadow_léger;
             
                   &:hover {
@@ -581,13 +679,22 @@ footer {
                   text-align: center;
                   list-style: none;
                   @extend %color_white;
+                  
+                  & :hover {
+                        color: #9356dc;
+                  }
+                  & :active {
+                        color: #9356dc;
+                  }      
+
+                              
 
                   a {
                         @include margin(5px, 0, 0, 5px);
                         @extend %color_white;
-                        line-height: 24px;
-
+                        line-height: 24px; 
                               
+                                    
                   }
                     
                   li {
