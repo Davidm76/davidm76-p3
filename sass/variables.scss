@@ -108,16 +108,16 @@
 
 @keyframes checked {
         0% {
-                display: block;    
-                opacity: 0%;
+                opacity: 0;
                 transform: rotateZ(0deg);
         }
-        30% {
-                opacity: 100%;
+        1% {
+                opacity: 1;
+                transform: rotateZ(0deg);
+                
         }
-
         100% {
-                opacity: 100%;
+                opacity: 1;
                 transform: rotateZ(360deg);
         }
 }

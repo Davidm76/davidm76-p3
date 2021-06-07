@@ -99,15 +99,15 @@
 }
 @keyframes checked {
   0% {
-    display: block;
-    opacity: 0%;
+    opacity: 0;
     transform: rotateZ(0deg);
   }
-  30% {
-    opacity: 100%;
+  1% {
+    opacity: 1;
+    transform: rotateZ(0deg);
   }
   100% {
-    opacity: 100%;
+    opacity: 1;
     transform: rotateZ(360deg);
   }
 }
@@ -141,7 +141,7 @@ body {
   background-color: #fff;
 }
 
-.bouton .btn, .etiquette_plat:active, .etiquette_plat:hover, .vignette_menu a .nouveau, .vignette_menu, .filtre .texte, .en_tete .btn {
+.bouton .btn, .menu .etiquette_générale .etiquette_plat:active, .menu .etiquette_générale .etiquette_plat:hover, .vignette_menu a .nouveau, .vignette_menu, .filtre .texte, .en_tete .btn {
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -173,7 +173,7 @@ footer ul, footer, .filtre, .en_tete {
   width: 100%;
 }
 
-.vignette_menu, .restaurants .restaurant {
+.restaurants .restaurant {
   justify-content: space-between;
 }
 
@@ -391,9 +391,15 @@ header a i {
 .vignette_menu {
   display: flex;
   flex-wrap: wrap;
-  margin: 2rem 4rem 2rem 4rem;
-  width: 40%;
+  margin: 2rem 1rem 2rem 1rem;
+  justify-content: space-around;
+  width: 22%;
   position: relative;
+}
+@media all and (max-width: 1050px) {
+  .vignette_menu {
+    width: 45%;
+  }
 }
 .vignette_menu a {
   display: flex;
@@ -401,7 +407,7 @@ header a i {
   max-height: 50rem;
 }
 .vignette_menu a img {
-  height: 40rem;
+  height: 20rem;
   border-radius: 30px 30px 0 0;
 }
 .vignette_menu a div:first-of-type {
@@ -425,7 +431,7 @@ header a i {
 }
 .vignette_menu a div:first-of-type i {
   position: absolute;
-  top: 40rem;
+  top: 20rem;
   right: 0rem;
   font-size: 2rem;
   margin: 3rem 1rem 0 0;
@@ -621,7 +627,7 @@ header a i {
   border-radius: 25px 25px 25px 25px;
   margin: 1rem 0 1rem 0;
 }
-.menu .etiquette_générale .etiquette_plat .plat {
+.menu .etiquette_générale .etiquette_plat .plat p {
   font-weight: 700;
   margin: 1rem 0 1rem 1rem;
 }
@@ -642,19 +648,65 @@ header a i {
   top: 1rem;
 }
 .menu .etiquette_générale .etiquette_plat .description_prix_check .check {
-  display: flex;
   position: absolute;
-  right: -3rem;
-  top: 0rem;
+  right: 0;
+  top: 0;
+  width: 0;
   opacity: 100%;
-  transition: all 1s ease-in-out;
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  transition: all 0.5s linear;
+  padding: 1.5rem 1.5rem 1.375rem 1.5rem;
 }
 .menu .etiquette_générale .etiquette_plat .description_prix_check .check .fa-check-circle {
+  opacity: 0;
   font-size: 2rem;
   right: 0rem;
-  opacity: 100%;
   color: #fff;
+}
+.menu .etiquette_générale .etiquette_plat:hover {
+  cursor: pointer;
+}
+.menu .etiquette_générale .etiquette_plat:hover .description_prix_check .description_prix .prix {
+  transition: 0.75s;
+  margin-right: 5rem;
+}
+.menu .etiquette_générale .etiquette_plat:hover .description_prix_check .check {
+  width: 2rem;
+  background-color: #99E2D0;
+  border-radius: 0 25px 25px 0;
+}
+.menu .etiquette_générale .etiquette_plat:hover .description_prix_check .check .fa-check-circle {
+  opacity: 1;
+  z-index: 3;
+  animation: checked 0.5s linear;
+}
+.menu .etiquette_générale .etiquette_plat:active {
+  cursor: pointer;
+}
+.menu .etiquette_générale .etiquette_plat:active .description_prix_check .description_prix .description p {
+  width: 85%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.menu .etiquette_générale .etiquette_plat:active .description_prix_check .description_prix .prix {
+  transition: 0.75s;
+  margin-right: 3.5rem;
+}
+.menu .etiquette_générale .etiquette_plat:active .description_prix_check .check {
+  width: 2rem;
+  background-color: #99E2D0;
+  border-radius: 0 25px 25px 0;
+}
+.menu .etiquette_générale .etiquette_plat:active .description_prix_check .check .fa-check-circle {
+  opacity: 1;
+  z-index: 3;
+  animation: checked 0.5s linear;
+}
+.menu .etiquette_générale:active .plat p {
+  width: 65%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media all and (max-width: 768px) {
@@ -662,11 +714,11 @@ header a i {
     margin: 1rem 1rem 0 1rem;
   }
   .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .description {
-    width: 17rem;
+    width: 100%;
     font-size: 0.85rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    /* text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;  */
   }
   .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .prix {
     margin: 0 -0.5rem -1rem 0;
@@ -677,36 +729,6 @@ header a i {
   .menu .etiquette_générale .etiquette_plat .description_prix_check .check {
     padding: 1.4rem 1rem 1rem 1rem;
   }
-}
-
-.etiquette_plat:hover {
-  cursor: pointer;
-}
-.etiquette_plat:hover .description_prix_check .description_prix .prix {
-  margin-right: 5rem;
-}
-.etiquette_plat:hover .check {
-  background-color: #99E2D0;
-  border-radius: 0 25px 25px 0;
-  transform: translate(-3rem, 0);
-}
-.etiquette_plat:hover .check .fa-check-circle {
-  animation: checked 1s linear;
-}
-
-.etiquette_plat:active {
-  cursor: pointer;
-}
-.etiquette_plat:active .description_prix_check .description_prix .prix {
-  margin-right: 5rem;
-}
-.etiquette_plat:active .check {
-  background-color: #99E2D0;
-  border-radius: 0 25px 25px 0;
-  transform: translate(-3rem, 0);
-}
-.etiquette_plat:active .check .fa-check-circle {
-  animation: checked 1s linear;
 }
 
 /* fin menu */

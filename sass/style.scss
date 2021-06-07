@@ -270,11 +270,15 @@ header {
 
       @include flex;
       @extend %border_background;
-      @include margin(2rem, 4rem, 2rem, 4rem);
-      @extend %justify_between;
-      @include width(40%);
+      @include margin(2rem, 1rem, 2rem, 1rem);
+      justify-content: space-around;
+      @include width(22%);
       position: relative;
       @extend %box_shadow_léger;
+      @media all and (max-width: 1050px) {
+            @include width(45%)
+      }
+
           
       & a {
             @include flex;
@@ -282,9 +286,10 @@ header {
 
                   img {
                         @extend %width_100;
-                        @include height(40rem);
+                        @include height(20rem);
                         @include border_r(30px, 30px, 0, 0);
                         @extend %objec_fit_cover;
+                        
                   }
 
             div:first-of-type {
@@ -312,7 +317,7 @@ header {
             
                   i {
                         position: absolute;
-                        top: 40rem;
+                        top: 20rem;
                         right: 0rem;
                         @include font_size(2rem);
                         @include margin(3rem, 1rem, 0, 0);
@@ -538,8 +543,10 @@ header {
                               @include margin(1rem, 0, 1rem, 0);
 
                               .plat {
+                                    & p {
                                     font-weight: 700;
                                     @include margin(1rem, 0, 1rem, 1rem);
+                                    }
                               }
 
                               .description_prix_check {
@@ -562,22 +569,88 @@ header {
                                     
 
                                           .check {
-                                                display: flex;
+                                                
                                                 position: absolute;
-                                                right: -3rem;
-                                                top: 0rem;
+                                                right: 0;
+                                                top: 0;
+                                                width: 0;
                                                 opacity: 100%;
-                                                transition: all 1s ease-in-out;
-                                                @include padding(1.5rem, 1.5rem, 1.5rem, 1.5rem);
+                                                transition: all 0.5s linear;
+                                                @include padding(1.5rem, 1.5rem, 1.375rem, 1.5rem);
 
                                           .fa-check-circle {
+                                                opacity: 0;
                                                 font-size: 2rem;
                                                 right: 0rem;
-                                                opacity: 100%;
-                                                color: $white;  
+                                                color: $white;
                                           }
                                     }
                               }
+                              &:hover {
+                                    @extend %box_shadow_léger;
+                                    cursor: pointer;
+                                    .description_prix_check {
+                                          .description_prix {
+                                                .prix {
+                                                      transition: 0.75s;
+                                                      margin-right: 5rem;
+                                                }
+                                          }
+                                          .check {
+                                                width: 2rem;
+                                                background-color: $tertiaire;
+                                                @include border-r(0, 25px, 25px, 0);
+                                                
+                                                .fa-check-circle {
+                                                      opacity: 1;
+                                                      z-index: 3;
+                                                      animation: checked 0.5s linear;
+                                                }
+                                          }
+                                    }     
+                              }
+                              &:active {
+                                    @extend %box_shadow_léger;
+                                    cursor: pointer;
+                                    .description_prix_check {
+                                          .description_prix {
+                                                .description {
+                                                      & p {
+                                                      width: 85%;
+                                                      white-space: nowrap;
+                                                      overflow: hidden;      
+                                                      text-overflow: ellipsis;
+                                                      }
+                                                      
+                                                }
+                                                .prix {
+                                                      transition: 0.75s;
+                                                      margin-right: 3.5rem;
+                                                }
+                                          }
+                                          .check {
+                                                width: 2rem;
+                                                background-color: $tertiaire;
+                                                @include border-r(0, 25px, 25px, 0);
+                                                
+                                                .fa-check-circle {
+                                                      opacity: 1;
+                                                      z-index: 3;
+                                                      animation: checked 0.5s linear;
+                                                }
+                                          }
+                                    }
+                              }   
+                        }
+                        &:active {
+                              & .plat {
+                                    & p { 
+                                    width: 65%;
+                                    white-space: nowrap;
+                                    overflow: hidden;      
+                                    text-overflow: ellipsis;
+                                    } 
+                              }                   
                         } 
             }
 } 
@@ -590,11 +663,11 @@ header {
                         .description_prix_check {
                               .description_prix {
                                     .description {
-                                          width: 17rem;
+                                          width: 100%;
                                           font-size: 0.85rem;
-                                          text-overflow: ellipsis;
+                                         /* text-overflow: ellipsis;
                                           white-space: nowrap;
-                                          overflow: hidden;   
+                                          overflow: hidden;  */ 
                                     }
                                     .prix {
                                           @include margin(0, -0.5rem, -1rem, 0);
@@ -609,50 +682,6 @@ header {
                         }        
                   }
             }     
-      }
-}
-
-.etiquette_plat:hover {
-      @extend %box_shadow_léger;
-      cursor: pointer;
-      .description_prix_check {
-            .description_prix {
-                  .prix {
-                        margin-right: 5rem;
-                  }
-            }
-      }
-      .check {
-            background-color: $tertiaire;
-            
-            @include border-r(0, 25px, 25px, 0);
-            transform: translate(-3rem,0);
-            
-            .fa-check-circle {
-            animation: checked 1s linear;
-            }
-      }
-}
-
-.etiquette_plat:active {
-      @extend %box_shadow_léger;
-      cursor: pointer;
-      .description_prix_check {
-            .description_prix {
-                  .prix {
-                        margin-right: 5rem;
-                  }
-            }
-      }
-      .check {
-            background-color: $tertiaire;
-            
-            @include border-r(0, 25px, 25px, 0);
-            transform: translate(-3rem,0);
-            
-            .fa-check-circle {
-            animation: checked 1s linear;
-            }
       }
 }
 
