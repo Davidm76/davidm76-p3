@@ -141,7 +141,7 @@ body {
   background-color: #fff;
 }
 
-.bouton .btn, .menu .etiquette_générale .etiquette_plat:active, .menu .etiquette_générale .etiquette_plat:hover, .vignette_menu a .nouveau, .vignette_menu, .filtre .texte, .en_tete .btn {
+.bouton .btn, .menu .etiquette_générale .etiquette_plat:hover, .vignette_menu a .nouveau, .vignette_menu, .filtre .texte, .en_tete .btn {
   box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
@@ -617,6 +617,16 @@ header a i {
 .menu .etiquette_générale {
   width: 100%;
   margin: 1rem 5rem 2rem 2rem;
+  /*&:active {
+        & .plat {
+              & p { 
+              width: 65%;
+              white-space: nowrap;
+              overflow: hidden;      
+              text-overflow: ellipsis;
+              } 
+        }                   
+  }*/
 }
 .menu .etiquette_générale .etiquette_plat {
   display: flex;
@@ -626,6 +636,38 @@ header a i {
   background: white;
   border-radius: 25px 25px 25px 25px;
   margin: 1rem 0 1rem 0;
+  /*&:active {
+        @extend %box_shadow_léger;
+        cursor: pointer;
+        .description_prix_check {
+              .description_prix {
+                    .description {
+                          & p {
+                          width: 85%;
+                          white-space: nowrap;
+                          overflow: hidden;      
+                          text-overflow: ellipsis;
+                          }
+
+                    }
+                    .prix {
+                          transition: 0.75s;
+                          margin-right: 3.3rem;    
+                    }
+              }
+              .check {
+                    width: 2rem;
+                    background-color: $tertiaire;
+                    @include border-r(0, 25px, 25px, 0);
+
+                    .fa-check-circle {
+                          opacity: 1;
+                          z-index: 3;
+                          animation: checked 0.5s linear;
+                    }
+              }
+        }
+  } */
 }
 .menu .etiquette_générale .etiquette_plat .plat p {
   font-weight: 700;
@@ -640,6 +682,12 @@ header a i {
 .menu .etiquette_générale .etiquette_plat .description_prix_check .description {
   display: flex;
   margin: -1.5rem 0 0 1rem;
+}
+.menu .etiquette_générale .etiquette_plat .description_prix_check .description p {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .menu .etiquette_générale .etiquette_plat .description_prix_check .prix {
   display: flex;
@@ -679,35 +727,6 @@ header a i {
   z-index: 3;
   animation: checked 0.5s linear;
 }
-.menu .etiquette_générale .etiquette_plat:active {
-  cursor: pointer;
-}
-.menu .etiquette_générale .etiquette_plat:active .description_prix_check .description_prix .description p {
-  width: 85%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.menu .etiquette_générale .etiquette_plat:active .description_prix_check .description_prix .prix {
-  transition: 0.75s;
-  margin-right: 3.5rem;
-}
-.menu .etiquette_générale .etiquette_plat:active .description_prix_check .check {
-  width: 2rem;
-  background-color: #99E2D0;
-  border-radius: 0 25px 25px 0;
-}
-.menu .etiquette_générale .etiquette_plat:active .description_prix_check .check .fa-check-circle {
-  opacity: 1;
-  z-index: 3;
-  animation: checked 0.5s linear;
-}
-.menu .etiquette_générale:active .plat p {
-  width: 65%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 
 @media all and (max-width: 768px) {
   .menu .etiquette_générale {
@@ -716,18 +735,74 @@ header a i {
   .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .description {
     width: 100%;
     font-size: 0.85rem;
-    /* text-overflow: ellipsis;
-     white-space: nowrap;
-     overflow: hidden;  */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
   .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .prix {
     margin: 0 -0.5rem -1rem 0;
   }
-  .menu .etiquette_générale .etiquette_plat .description_prix_check .description_prix .prix:active {
-    margin-right: 3.2rem;
-  }
   .menu .etiquette_générale .etiquette_plat .description_prix_check .check {
     padding: 1.4rem 1rem 1rem 1rem;
+  }
+  .menu .etiquette_générale .etiquette_plat:hover {
+    cursor: pointer;
+  }
+  .menu .etiquette_générale .etiquette_plat:hover .description_prix_check .description_prix .description p {
+    width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .menu .etiquette_générale .etiquette_plat:hover .description_prix_check .description_prix .prix {
+    transition: 0.75s;
+    margin-right: 3.3rem;
+  }
+  .menu .etiquette_générale .etiquette_plat:hover .description_prix_check .check {
+    width: 2rem;
+    background-color: #99E2D0;
+    border-radius: 0 25px 25px 0;
+  }
+  .menu .etiquette_générale .etiquette_plat:hover .description_prix_check .check .fa-check-circle {
+    opacity: 1;
+    z-index: 3;
+    animation: checked 0.5s linear;
+  }
+  .menu .etiquette_générale .etiquette_plat:active {
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  .menu .etiquette_générale .etiquette_plat:active .description_prix_check .description_prix .description p {
+    width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .menu .etiquette_générale .etiquette_plat:active .description_prix_check .description_prix .prix {
+    transition: 0.75s;
+    margin-right: 3.3rem;
+  }
+  .menu .etiquette_générale .etiquette_plat:active .description_prix_check .check {
+    width: 2rem;
+    background-color: #99E2D0;
+    border-radius: 0 25px 25px 0;
+  }
+  .menu .etiquette_générale .etiquette_plat:active .description_prix_check .check .fa-check-circle {
+    opacity: 1;
+    z-index: 3;
+    animation: checked 0.5s linear;
+  }
+  .menu .etiquette_générale:hover .plat p {
+    width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .menu .etiquette_générale:active .plat p {
+    width: 65%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
